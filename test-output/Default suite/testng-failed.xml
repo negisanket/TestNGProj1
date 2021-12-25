@@ -8,8 +8,8 @@
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="validateSubmitBtntest"/>
-          <include name="fail"/>
           <include name="setUpSuite"/>
+          <include name="LoginTest"/>
           <include name="extentSetup"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LoginPageTest -->

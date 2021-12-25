@@ -1,6 +1,6 @@
 package com.crm.qa.pages;
 
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -21,12 +21,11 @@ public class LoginPage extends TestBase {
 	@FindBy(name="email")
 	WebElement username;
 	
-	@CacheLookup
-	@FindBy(xpath="//input[@type='password']")
+	@FindBy(name="password")
 	WebElement password;
 	
 
-	@FindBy(xpath="(//div[@class='ui fluid large blue submit button'])[1]")
+	@FindBy(xpath="//div[@class='ui fluid large blue submit button']")
 	WebElement loginSubmit;
 	
 	//Initializing page objects
@@ -37,23 +36,38 @@ public class LoginPage extends TestBase {
 	}
 	
 	//Actions:
-	public String validatePageTitle()
+	public String validateLoginPageTitle()
 	{
 		return driver.getTitle();
 	}
 	
 	public boolean validateSubmitButton()
 	{
-
 		logInBtn.click();
+	//WebElelmnet loginSubmit2 = driver.findElement(By.xpath("//div[@class='ui fluid large blue submit button'][1]"));
+		try
+		{	WebDriverWait wait = new WebDriverWait(driver, 55);
+		wait.until(ExpectedConditions.visibilityOf(loginSubmit));
+		}
+		catch (Exception e) {
+			System.out.println(" Loginbutton Validation Elelment not located"+e.getMessage());
+		}
+	
 		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$Submit button is Displayed "+loginSubmit.isDisplayed());
 		return loginSubmit.isDisplayed();
 	}
 	
 	public HomePage login(String un, String pw)
 	{
-		//WebDriverWait wait = new WebDriverWait(driver, 15);
-		//wait.until(ExpectedConditions.visibilityOf(password));
+		try
+		{	WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(password));
+		}
+		catch (Exception e) {
+			System.out.println(" password Elelment not located"+e.getMessage());
+		}
+		
+		
 		logInBtn.click();
 		username.sendKeys(un);
 		password.sendKeys(pw);

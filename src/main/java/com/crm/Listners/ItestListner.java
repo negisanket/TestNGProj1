@@ -4,13 +4,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 
 public class ItestListner implements ITestListener{
 
-	public static ExtentReports extent;
-	public static ExtentTest extenttest;
+
 	
 	public void onTestStart(ITestResult result) {
 		System.out.println("MYTest case started"+result.getName());

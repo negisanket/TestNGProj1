@@ -38,9 +38,11 @@ public class Utilities {
 	
 	static public String getCurrentDateTime() {
 		
-		DateFormat myformat = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
-		Date currentdate = new Date();
-		return myformat.format(currentdate);
+		//SimpleDateFormat myformat = new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss");
+		//Date currentdate = new Date();
+		//return myformat.format(currentdate);
+		
+		return new SimpleDateFormat("MM_dd_yyyy_HH_mm_ss").format(new Date());
 	}
 	
 	

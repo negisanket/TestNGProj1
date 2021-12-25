@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.crm.Listners.ItestListner"/>
+  </listeners>
+  <test name="CRM project(failed)">
     <classes>
       <class name="com.crm.qa.testcases.LoginPageTest">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
           <include name="validateSubmitBtntest"/>
-          <include name="fail"/>
           <include name="setUpSuite"/>
+          <include name="methodTearDown"/>
+          <include name="LoginTest"/>
           <include name="extentSetup"/>
         </methods>
       </class> <!-- com.crm.qa.testcases.LoginPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- CRM project(failed) -->
+</suite> <!-- Failed suite [Suite] -->

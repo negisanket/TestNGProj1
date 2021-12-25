@@ -6,6 +6,7 @@
 <listener class-name="com.crm.Listners.ItestListner"></listener>
 </listeners>
 
+<parameter name="browserName" value="chrome"></parameter>
   <test thread-count="5" name="CRM project">
     <classes>
       <class name="com.crm.qa.testcases.LoginPageTest"/>

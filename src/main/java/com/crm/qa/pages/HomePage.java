@@ -23,7 +23,11 @@ public class HomePage extends TestBase {
 	{
 	System.out.println("Account="+Elabel1);
 	
+	}
 	
+	public String getHomePageTitle()
+	{
+		return driver.getTitle();
 	}
 	
 }

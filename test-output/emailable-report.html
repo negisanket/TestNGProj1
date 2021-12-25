@@ -31,61 +31,18 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">56.4 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">CRM project</td><td class="numi">3</td><td class="numi">3</td><td class="numi">0</td><td class="numi">0</td><td class="numi">133.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="2">com.crm.qa.testcases.LoginPageTest</td><td><a href="#m1"><b>fail</b>  </a></td><td class="numi">1</td><td>1636117946045</td><td class="numi">10</td></tr><tr class="failedodd"><td><a href="#m2"><b>validateSubmitBtntest</b>  </a></td><td class="numi">1</td><td>1636117973505</td><td class="numi">19569</td></tr>
-<tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="2">com.crm.qa.testcases.LoginPageTest</td><td><a href="#m3"><b>loginPageTitleTest</b>  </a></td><td class="numi">1</td><td>1636117953599</td><td class="numi">241</td></tr><tr class="passedodd"><td><a href="#m4"><b>LoginTest</b>  </a></td><td class="numi">1</td><td>1636117960176</td><td class="numi">6824</td></tr>
+<tr><th colspan="4">CRM project &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="3">com.crm.qa.testcases.LoginPageTest</td><td><a href="#m1"><b>loginPageTitleTest</b>  </a></td><td class="numi">1</td><td>1639020596989</td><td class="numi">29</td></tr><tr class="passedodd"><td><a href="#m2"><b>LoginTest</b>  </a></td><td class="numi">1</td><td>1639020609577</td><td class="numi">86746</td></tr><tr class="passedodd"><td><a href="#m3"><b>validateSubmitBtntest</b>  </a></td><td class="numi">1</td><td>1639020706285</td><td class="numi">6698</td></tr>
 </table>
-<h1>Default test</h1>
-<h2 id="m1">com.crm.qa.testcases.LoginPageTest:fail</h2>
-<div style="padding-left:3em">
-<p>expected [true] but found [false]</p>
-org.testng.Assert.fail(Assert.java:94)
-<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
-<br/>at org.testng.Assert.assertTrue(Assert.java:42)
-<br/>at org.testng.Assert.assertTrue(Assert.java:52)
-<br/>at com.crm.qa.testcases.LoginPageTest.fail(LoginPageTest.java:78)
-<br/>25 lines not shown
-</div>
+<h1>CRM project</h1>
+<h2 id="m1">com.crm.qa.testcases.LoginPageTest:loginPageTitleTest</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m2">com.crm.qa.testcases.LoginPageTest:validateSubmitBtntest</h2>
-<div style="padding-left:3em">
-<p>timeout: Timed out receiving message from renderer: 15.000
-  (Session info: chrome=95.0.4638.69)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;SANKETNEGI&apos;, ip: &apos;192.168.1.8&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 95.0.4638.69, chrome: {chromedriverVersion: 95.0.4638.54 (d31a821ec901f..., userDataDir: C:\Users\SANKET~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56053}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 88828100d8075cb7a8ebf0617beef6a6</p>
-sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-<br/>at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-<br/>at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-<br/>at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-<br/>at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-<br/>at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-<br/>at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-<br/>at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-<br/>at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-<br/>at java.lang.reflect.Method.invoke(Method.java:498)
-<br/>at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-<br/>at com.sun.proxy.$Proxy12.isDisplayed(Unknown Source)
-<br/>at com.crm.qa.pages.LoginPage.validateSubmitButton(LoginPage.java:49)
-<br/>at com.crm.qa.testcases.LoginPageTest.validateSubmitBtntest(LoginPageTest.java:52)
-<br/>25 lines not shown
-</div>
+<h2 id="m2">com.crm.qa.testcases.LoginPageTest:LoginTest</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m3">com.crm.qa.testcases.LoginPageTest:LoginTest</h2>
-<p class="totop"><a href="#summary">back to summary</a></p>
-<h2 id="m4">com.crm.qa.testcases.LoginPageTest:loginPageTitleTest</h2>
+<h2 id="m3">com.crm.qa.testcases.LoginPageTest:validateSubmitBtntest</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

@@ -6,9 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -29,7 +31,7 @@ public class TestBase {
 	@BeforeSuite
 	public void setUpSuite()
 	{
-		spark = new ExtentSparkReporter(new File(prop.getProperty("Usr.dir")+Utilities.getCurrentDateTime()+"Ex-index.html"));
+		spark = new ExtentSparkReporter(new File(prop.getProperty("Usr.dir")+Utilities.getCurrentDateTime()+"Ex-index.html")); //$NON-NLS-1$ //$NON-NLS-2$
 		extent = new ExtentReports();
 		//spark.config().setTheme(Theme.DARK);	
 		//spark.config().setDocumentTitle("CRM TITLE");
@@ -37,45 +39,45 @@ public class TestBase {
 	}
 	
 	
-	public TestBase()
+	public TestBase()  //constructor
 	{
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream("C:\\Users\\Sanket Negi\\eclipse-workspace\\TestNGproj1\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
+			FileInputStream ip = new FileInputStream(Messages.getString("TestBase.2")); //$NON-NLS-1$
 			prop.load(ip);
 			
 		} catch (FileNotFoundException e) {
 			
-		System.out.println("File path is incorrect or file is missing");
+		System.out.println("File path is incorrect or file is missing"); //$NON-NLS-1$
 		}
 		catch (IOException e) {
-			System.out.println(" IO Exception for ip");
+			System.out.println(" IO Exception for ip"); //$NON-NLS-1$
 		}
 	}
 	
-	
+	//@Parameters("browserName")
 	public void initilization()
 	{
 		WebDriverManager.chromedriver().setup();
-		//driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		
-	String browserName =	prop.getProperty("browser");
+	String browserName =	prop.getProperty("browser"); //$NON-NLS-1$
 		
-		if (browserName.equals("chrome")) {
-			System.out.println("Browser is==="+browserName);
+		if (browserName.equals("chrome")) { //$NON-NLS-1$
+			System.out.println("Browser is==="+browserName); //$NON-NLS-1$
 			 driver = new ChromeDriver();
 		}
-		else if (browserName.equals("firefox")) {
+		else if (browserName.equals("firefox")) { //$NON-NLS-1$
 			
 		}
 		else {
-			System.out.println("Browser not define dproperly");
+			System.out.println("Browser not define dproperly"); //$NON-NLS-1$
 		}
 		
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("url"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url")); //$NON-NLS-1$
 		
 	}
 	
@@ -83,20 +85,24 @@ public class TestBase {
 	public void extentSetup(Method method) {
 		
 		extenttest = extent.createTest(method.getName());
+		Reporter.log("Method Started: "+method.getName(),true); //$NON-NLS-1$
 	}
 	
 	
 	@AfterMethod
-	public void tearDown(ITestResult result) throws IOException
+	public void methodTearDown(ITestResult result) throws IOException
 	{
-		
+		Reporter.log("getStatus value"+result.getStatus(),true); //$NON-NLS-1$
+		Reporter.log("ITestResult.FAILURE"+ITestResult.FAILURE,true); //$NON-NLS-1$
+		Reporter.log("ITestResult.SUCCESS"+ITestResult.SUCCESS,true); //$NON-NLS-1$
 		if(result.getStatus() == ITestResult.FAILURE)
 		{
+			
 		//	Utilities.takeScreenshot(driver);
-			extenttest.fail("TC failed", MediaEntityBuilder.createScreenCaptureFromPath("C:\\Users\\Sanket Negi\\Pictures\\Fail.jpg").build());
+			extenttest.fail("TC failed", MediaEntityBuilder.createScreenCaptureFromPath(Utilities.takeScreenshot(driver)).build()); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		else if(result.getStatus() == ITestResult.SUCCESS)
-			extenttest.pass("Success", MediaEntityBuilder.createScreenCaptureFromPath(Utilities.takeScreenshot(driver)).build());
+			extenttest.pass("Success", MediaEntityBuilder.createScreenCaptureFromPath(Utilities.takeScreenshot(driver)).build()); //$NON-NLS-1$
 		
 		
 		extent.flush();	
@@ -111,8 +117,8 @@ public class TestBase {
 
 
 
-// Add testn.xml
-//add listner from testng. xml
-//log4j
-//IRetry Analyzer
+
+
+
+//add IRetry Analyzer
 
