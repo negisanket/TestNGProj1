@@ -106,7 +106,7 @@ public class TestBase {
 		
 		
 		extent.flush();	
-		driver.quit();
+		driver.close();
 	}
 
 	
